@@ -26,7 +26,18 @@
   audio.play();
   ```
 
-  
 
-  -  
+
+## 02 - JS and CSS Clock
+> [Demo](https://hcwxd.github.io/JavaScript30/02%20-%20JS%20and%20CSS%20Clock/index.html)
+
+- `transform-origin` CSS 屬性
+
+  - 參數：x-axis y-axis z-axis
+
+- `transition-timing-function` CSS 屬性
+
+  - 製造指針擺動效果
+
+  `transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);`
 
