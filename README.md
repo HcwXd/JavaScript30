@@ -41,3 +41,80 @@
 
   `transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);`
 
+
+
+## 03 - CSS Variables
+> [Demo](https://hcwxd.github.io/JavaScript30/03%20-%20CSS%20Variables/index.html)
+
+- CSS Varialbes
+
+  - 宣告
+
+  ```css
+  :root {
+        --spacing: 10px;
+        --blur: 10px;
+        --base: #8282e6;
+  }
+  ```
+
+  - 使用
+
+  ```css
+  img {
+        padding: var(--spacing);
+        background: var(--base);
+        filter: blur(var(--blur));
+  }
+  ```
+
+- JS 變更 CSS Variables
+
+  - HTML Input tag
+
+  ```html
+   <label for="blur">Blur:</label>
+   <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+  
+   <label for="base">Base Color</label>
+   <input id="base" type="color" name="base" value="#8282e6">
+  ```
+
+  - JS event function
+
+  ```javascript
+  inputs.forEach(input => input.addEventListener("change", updateCSS));
+  
+  inputs.forEach(input => input.addEventListener("mousemove", updateCSS));
+  
+  function updateCSS() {
+      const suffix = this.dataset.sizing || "";
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+  }
+  ```
+
+- HTML \<input> 參數
+
+  - type => [Ref link](https://www.w3schools.com/tags/att_input_type.asp)
+    - [checkbox](https://www.w3schools.com/tags/att_input_type_checkbox.asp)
+    - [color](https://www.w3schools.com/tags/att_input_type_color.asp)
+    - [date](https://www.w3schools.com/tags/att_input_type_date.asp)
+    - [email](https://www.w3schools.com/tags/att_input_type_email.asp)
+    - [file](https://www.w3schools.com/tags/att_input_type_file.asp)
+    - [number](https://www.w3schools.com/tags/att_input_type_number.asp)
+    - [password](https://www.w3schools.com/tags/att_input_type_password.asp)
+    - [radio](https://www.w3schools.com/tags/att_input_type_radio.asp)
+    - [range](https://www.w3schools.com/tags/att_input_type_range.asp)
+    - [reset](https://www.w3schools.com/tags/att_input_type_reset.asp)
+  - tips
+    - 用 name 指定變更的 Css Variables
+    - 用 data-sizing 指定 Css Variables 吃的單位
+
+
+
+
+
+
+
+
+
