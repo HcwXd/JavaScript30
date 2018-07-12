@@ -112,9 +112,69 @@
 
 
 
+## 04 - Array Cardio Day 1
+> [Demo](https://hcwxd.github.io/JavaScript30/04%20-%20Array%20Cardio%20Day%201/index.html)
 
+- Filter
 
+  `回傳符合條件的元素組成的陣列`
 
+  ```JavaScript
+  const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600))
+  
+  ```
 
+- map
+
+  `回傳透過函式內回傳的值組合成一個陣列`
+
+  ```javascript
+  const fullName = inventors.map(inventor => (inventor.first + " " + inventor.last));
+  
+  ```
+
+- sort
+
+  `回傳符合條件排序後的陣列`
+
+  ```JavaScript
+  const ordered = inventors.sort((first, second) => first.year > second.year ? 1 : -1);
+  
+  const sorted = inventors.sort((first, second) => {
+      const lastPerson = first.passed - first.year;
+      const nextPerson = second.passed - second.year;
+      return lastPerson > nextPerson ? -1 : 1;
+  });
+  
+  const alpha = people.sort((a, b) => {
+      const [aLast, aFirst] = a.split(", ");
+      const [bLast, bFirst] = b.split(", ");
+      return aLast > bLast ? 1 : -1;
+  });
+  ```
+
+- reduce
+
+  `與前一個回傳的值再次作運算，詳細使用為：`
+  `array.reduce(reducer[accumlator, currentValue, currentIndex, array], initialValue)`
+
+  ```javascript
+  const totalYears = inventors.reduce((total, inventor) => {
+      return total + (inventor.passed - inventor.year)
+  }, 0);
+  
+  const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car']
+  const transport = data.reduce((obj, item) => {
+      if (!obj[item]) {
+          obj[item] = 0;
+      }
+      obj[item]++;
+      return obj;
+  }, {});
+  ```
+
+- tips
+
+  - 用 console.table 可以把陣列用 table 方式 log 到瀏覽器的 console
 
 
