@@ -178,3 +178,25 @@
   - 用 console.table 可以把陣列用 table 方式 log 到瀏覽器的 console
 
 
+
+## 05 - Flex Panel Gallery
+
+> [Demo](https://hcwxd.github.io/JavaScript30/05%20-%20Flex%20Panel%20Gallery/index.html)
+
+- `display: flex`
+  - 本身為 flex 的元素為 flex-box，而其子元素為 flex-item 
+- `flex: flex-grow flex-shrink flex-basis`
+  - flex 決定 flex-item 如何分配 flex-box 的剩餘空間
+  - flex-grow、flex-shrink 數值皆為相對概念
+    - 大於 0 即會分配剩餘空間
+    - flex: 5 為 flex: 1 的五倍大
+    - grow 決定分配剩餘，shrink 決定如何縮減多餘
+- `transition-timing-function` 先縮後放效果
+  - 效果參數為：cubic-bezier(0.61, -0.19, 0.7, -0.11)
+- `classList.toggle(className)`
+  - 在元素切換一個 CSS，有則 `remove()`，無則 `add()`
+- `transitionend` event
+  - 監聽 transition 結束時觸發，可用 `e.propertyName` 抓到 transition 的事件
+  - 搭配指定 `e.propertyName` 條件，可以把多個 transition 串起來
+- includes
+  - flex 變化在 chrome 為 flex-grow 事件，在 safari 為 flex 事件，可用 `    if (e.propertyName.includes('flex')) ` 解決
