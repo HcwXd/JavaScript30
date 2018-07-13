@@ -1,6 +1,6 @@
-const secondHand = document.querySelector(".second-hand");
-const minHand = document.querySelector(".min-hand");
-const hourHand = document.querySelector(".hour-hand");
+const secondHand = document.querySelector('.second-hand');
+const minHand = document.querySelector('.min-hand');
+const hourHand = document.querySelector('.hour-hand');
 
 function setDate() {
     const now = new Date();
@@ -16,7 +16,5 @@ function setDate() {
     const hours = now.getHours();
     const hourDegree = (hours / 60) * 360 + 90;
     hourHand.style.transform = `rotate(${hourDegree}deg)`;
-
-
 }
 setInterval(setDate, 1000);
