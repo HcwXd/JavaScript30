@@ -200,3 +200,94 @@
   - 搭配指定 `e.propertyName` 條件，可以把多個 transition 串起來
 - includes
   - flex 變化在 chrome 為 flex-grow 事件，在 safari 為 flex 事件，可用 `    if (e.propertyName.includes('flex')) ` 解決
+
+
+
+## 06 - Type Ahead
+> [Demo](https://hcwxd.github.io/JavaScript30/06%20-%20Type%20Ahead/index.html)
+
+- `fetch()`
+
+  - Fetch 為替代[`XMLHttpRequest`](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) 的方案
+  - fetch(url) 本身會回傳一個 Promise 物件，與 `jQuery.ajax()` 不同點在於，當接收到一個代表錯誤的 HTTP 狀態碼時，從` fetch()`返回的 Promise **不會被標記為** `reject`， 即使該 HTTP 的狀態碼是 404 或 500。相反，它會將 Promise 狀態標記為 resolve （但是會將 resolve 的返回值的 ok 屬性設置為 false ），僅當網絡故障時或請求被阻止時，才會標記為 reject
+  - `fetch()` 的處理可以用 `.then()` 串接，會得到 `response`
+
+  ```javascript
+  fetch(url)
+      .then((blob) => blob.json())
+   	.then((data) => cities.push(...data));
+  ```
+
+  - blob 命名為 Binary Large Object 的縮寫，通常表一個相當於檔案（ Raw data ）的不可變物件
+  - `.json()` 是 response 的 method
+  - 把回傳陣列裡的物件裡各自塞入大陣列可以直接用 `.push(...data)`
+
+- 即時監聽 \<input> 有無變化需要同時監聽兩個事件
+
+  - `change`
+  - `keyup`
+
+- 把 array 裡的物件轉成 HTML 的方法
+
+  - `for loop` 
+
+  - `map + return + .join('')`
+
+    ```javascript
+    function displayMatches() {
+        const matchArray = findMatches(this.value, cities);
+        const html = matchArray
+            .map((place) => {
+                return `
+            <li>
+              <span class="name">${cityName}, ${stateName}</span>
+              <span class="population">${numberWithCommas(place.population)}</span>
+            </li>
+          `;
+            })
+            .join('');
+        suggestions.innerHTML = html;
+    }
+    ```
+
+  - `.join('')` 是為了把大陣列轉成一個字串
+
+- `RegExp(wordToMatch, 'gi')`
+
+  - g modifier: global. All matches (don't return on first match)
+  - i modifier: insensitive. Case insensitive match (ignores case of [a-zA-Z])
+  - `.match(regex)` 返回符合的值
+  - `.replace(regex, replacingWord)` 返回替代後的值
+
+- 為數字加分隔號
+
+  ```javascript
+  function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  ```
+
+- 例子（把 Array 變成 Html，把其中相符的值變色）
+
+  ```javascript
+  function displayMatches() {
+      const matchArray = findMatches(this.value, cities);
+      const html = matchArray
+          .map((place) => {
+              const regex = new RegExp(this.value, 'gi');
+              const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+              const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+              return `
+          <li>
+            <span class="name">${cityName}, ${stateName}</span>
+            <span class="population">${numberWithCommas(place.population)}</span>
+          </li>
+        `;
+          })
+          .join('');
+      suggestions.innerHTML = html;
+  }
+  ```
+
+
+
