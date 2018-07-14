@@ -22,11 +22,9 @@
 
 > [Demo](https://hcwxd.github.io/JavaScript30/05%20-%20Flex%20Panel%20Gallery/index.html)
 
-###06 - Type Ahead
+### 06 - Type Ahead
 
 > [Demo](https://hcwxd.github.io/JavaScript30/06%20-%20Type%20Ahead/index.html)
-
-
 
 ## 01 - JavaScript Drum Kit
 
