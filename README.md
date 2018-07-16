@@ -366,3 +366,49 @@
 
 
 
+## 08 - Fun with HTML5 Canvas
+
+- JS 取得現在視窗大小
+
+  - `window.innerWidth` , `window.innerHeight`
+
+- Canvas 設置
+
+  - 大小設置
+
+  ```javascript
+  const canvas = document.querySelector('#draw');
+  const ctx = canvas.getContext('2d');
+  
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  ```
+
+  - [lineCap](https://www.w3schools.com/tags/canvas_linecap.asp)
+    - 線段結束樣式
+  - [lineJoin](https://www.w3schools.com/tags/canvas_linejoin.asp)
+    - 線段相交樣式
+  - 繪圖流程
+
+  ```javascript
+  // Start drawing
+  ctx.beginPath();
+  // start from
+  ctx.moveTo(lastX, lastY);
+  // go to
+  ctx.lineTo(e.offsetX, e.offsetY);
+  // Draw
+  ctx.stroke();
+  ```
+
+- Array deconstruct 技巧
+
+  -   ` [X, Y] = [newX, newY];`
+
+- hsl 顏色
+
+  - `hsl(hue, saturation, lightness)`
+  - hue = 0 ~ 360
+  - saturation, lightness = 0 ~ 100%
+
+   
