@@ -26,6 +26,16 @@
 
 > [Demo](https://hcwxd.github.io/JavaScript30/06%20-%20Type%20Ahead/index.html)
 
+### 07 - Array Cardio Day 2
+> [Demo](https://hcwxd.github.io/JavaScript30/07%20-%20Array%20Cardio%20Day%202/index.html)
+
+### 08 - Fun with HTML5 Canvas
+> [Demo](https://hcwxd.github.io/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/index.html)
+
+
+
+------
+
 ## 01 - JavaScript Drum Kit
 
 > [Demo](https://hcwxd.github.io/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/index.html)
