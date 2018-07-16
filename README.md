@@ -306,3 +306,63 @@
         suggestions.innerHTML = html;
     }
     ```
+
+
+
+## 07 - Array Cardio Day 2
+> [Demo](https://hcwxd.github.io/JavaScript30/07%20-%20Array%20Cardio%20Day%202/index.html)
+
+- some
+
+  `檢查陣列中元素，有一元素符合條件則回傳 true`
+
+  ```javascript
+  const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
+  ```
+
+- every
+
+  `檢查陣列中元素，全部元素符合條件則回傳 true`
+
+  ```javascript
+  const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
+  ```
+
+- find
+
+  `回傳陣列中第一個符合條件的元素`
+
+  ```javascript
+  const comment = comments.find(comment => comment.id === 823423);
+  ```
+
+- findIndex
+
+  `回傳陣列中第一個符合條件的元素索引`
+
+  ```javascript
+  const index = comments.findIndex(comment => comment.id === 823423);
+  
+  // comments.splice(index, 1);
+  
+  const newComments = [
+      ...comments.slice(0, index),
+      ...comments.slice(index + 1)
+  ];
+  ```
+
+- splice vs slice
+
+  - `array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+  - `array.slice([begin[, end]])`
+  - 用 `slice` 組成新陣列，則可用
+
+  ```javascript
+  const newComments = [
+      ...comments.slice(0, index),
+      ...comments.slice(index + 1)
+  ];
+  ```
+
+
+
