@@ -423,3 +423,71 @@
   - saturation, lightness = 0 ~ 100%
 
    
+
+## 09 - Dev Tools Domination
+
+> [Demo](https://hcwxd.github.io/JavaScript30/09%20-%20Dev%20Tools%20Domination/index.html)
+
+- Chrome dev tools
+
+  - 在元素上按右鍵 => break on => attribute modification
+
+- `console.log()`
+
+  - `%s` => 加入字串
+
+  ```javascript
+  console.log('Hello I am a %s string!', '💩');
+  ```
+
+  - `%c` => 加入 CSS
+
+  ```javascript
+  console.log('%c I am some great text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue')
+  ```
+
+- console 系列
+
+  - `console.warn()`
+  - `console.error()`
+  - `console.info()`
+  - `console.assert(statement, 'Word that show when statement == false')`
+
+  ```javascript
+  console.assert(p.classList.contains('ouch'), 'That is wrong!');
+  ```
+
+  - `console.clear()`
+  - `console.dir()`
+
+  ```javascript
+  console.log(p);
+  console.dir(p);
+  ```
+
+  - `console.group()` / `console.groupCollapsed()` + `console.log()` *n + `console.groupEnd()`
+
+  ```javascript
+  dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+  });
+  ```
+
+  - `console.count()`
+  - `console.time()` + `console.timeEnd()`
+
+  ```javascript
+  console.time('fetching data');
+  fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+      console.timeEnd('fetching data');
+      console.log(data);
+  });
+  ```
+
+  - `console.table()`
