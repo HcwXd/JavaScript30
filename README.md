@@ -491,3 +491,31 @@
   ```
 
   - `console.table()`
+
+## 10 - Hold Shift and Check Checkboxes
+
+- 偵測使用者用 shift 鍵做選取
+
+  - `e.shiftKey`
+
+- \<input>[type="checkbox"]
+
+  用 `input:checked+指定元素` 去操作打勾後的 CSS 變化
+
+  ```javascript
+  input:checked+p {
+      background: #F9F9F9;
+      text-decoration: line-through;
+  }
+  ```
+
+- 用 !isBoolean 操作 toggle
+
+  ```javascript
+  if (node === lastChecked || node === this) {
+      isInBetween = !isInBetween;
+  }
+  ```
+
+
+
