@@ -521,3 +521,96 @@
 
 
 
+ ## 11 - Custom Video Player
+
+> [Demo](https://hcwxd.github.io/JavaScript30/11%20-%20Custom%20Video%20Player/index.html)
+
+- \<video> html tag
+
+  - 自動播放：`autoplay`
+
+- \<video> node 操作
+
+  - 影片是否暫停：`video.paused`
+  - 影片目前時間：`video.currentTime`
+  - 影片總共時間：`video.duration`
+  - 播放影片：`video.play()`
+  - 暫停影片：`video.pause()`
+  - 監聽事件：`video.addEventListener('play'/'pause'/'timeupdate');`
+
+- `querySelector`  可以將 node 當作目標選取內元素
+
+  ```javascript
+  const player = document.querySelector('.player');
+  const video = player.querySelector('.viewer');
+  ```
+
+- `querySelector` 可以將 attribute 當作 selector
+
+  ```javascript
+  const skipButtons = player.querySelectorAll('[data-skip]');
+  ```
+
+- 將物件 method 當作變數執行
+
+  ```javascript
+  const method = video.paused ? 'play' : 'pause';
+  video[method]();
+  ```
+
+- 改變 node 內文字正統方法
+
+  ```javascript
+  toggle.textContent = icon;
+  ```
+
+- \<input> range 改變屬性的簡潔寫法
+
+  HTML
+
+  ```html
+  <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+  <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+  ```
+
+  JS
+
+  ```javascript
+  function handleRangeUpdate() {
+    video[this.name] = this.value;
+  }
+  ```
+
+- flex 調整比例做進度條
+
+  - 外層元素
+    - `display: flex`
+    -   `flex: >0`
+    - `flex-basis: 100%`
+  - 內層元素
+    - `flex: 0`
+    - `flex-basis: progress percentage`
+
+- JS 選取元素長度
+
+  - `e.offsetX`
+  - `node.offsetWidth`
+
+- if statement 則執行一個 function 的簡潔寫法
+
+  ```javascript
+  (e) => mousedown && scrub(e)
+  ```
+
+  
+
+
+
+
+
+
+
+
+
+
+
