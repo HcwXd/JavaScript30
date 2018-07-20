@@ -616,7 +616,33 @@
 
 
 
+## 13 - Slide in on Scroll
 
+> [Demo](https://hcwxd.github.io/JavaScript30/13%20-%20Slide%20in%20on%20Scroll/index.html)
 
+- debounce
 
+  - Scroll 事件觸發太頻繁，需要限制單位時間內觸發頻率
+  - lodash 中有現成的
+
+- 計算 Scroll 高度 `scrollY` + `innerHeight`
+
+  -  `window.scrollY`：視窗上緣離網頁上緣的距離
+  -  `window.innerHeight`：視窗目前的高度
+
+- 計算網頁到元素最上緣的距離
+
+  ```javascript
+  const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height;
+  ```
+
+- 計算網頁到元素最下緣的距離
+
+  ```javascript
+  const imageBottom = sliderImage.offsetTop + sliderImage.height;
+  ```
+
+- node.offsetTop
+
+  - 計算元素上緣離網頁上緣的距離
 
