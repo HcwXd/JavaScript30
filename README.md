@@ -604,9 +604,15 @@
 
   
 
+## 12 - Key Sequence Detection
 
+> [Demo](https://hcwxd.github.io/JavaScript30/12 - Key Sequence Detection/index.html)
 
-
+- 監聽按鍵事件
+  - `addEventListener('keyup', (e)=>{console.log(e.key)})`
+- `.splice()`
+  - `array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+  - start 若為負，則從最後一個元素往前數（-1 開始）
 
 
 
