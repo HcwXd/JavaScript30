@@ -606,7 +606,7 @@
 
 ## 12 - Key Sequence Detection
 
-> [Demo](https://hcwxd.github.io/JavaScript30/12 - Key Sequence Detection/index.html)
+> [Demo](https://hcwxd.github.io/JavaScript30/12%20-%20Key%20Sequence%20Detection/index.html)
 
 - 監聽按鍵事件
   - `addEventListener('keyup', (e)=>{console.log(e.key)})`
