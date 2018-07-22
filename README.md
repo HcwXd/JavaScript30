@@ -646,3 +646,34 @@
 
   - 計算元素上緣離網頁上緣的距離
 
+
+
+## 14 - JavaScript References VS Copying
+
+> [Demo](https://hcwxd.github.io/JavaScript30/14%20-%20JavaScript%20References%20VS%20Copying/index.html)
+
+- copy 一個陣列的四種方法
+
+  ```javascript
+  const team2 = players.slice();
+  
+  const team3 = [].concat(players);
+  
+  const team4 = [...players];
+  
+  const team5 = Array.from(players);
+  ```
+
+- copt 一個物件的三種方法
+
+  ```javascript
+  const cap2 = Object.assign({}, person, { number: 99, age: 12 });
+  
+  const cap3 = {...person};
+  
+  const dev2 = JSON.parse(JSON.stringify(wes));
+  ```
+
+- Note
+
+  - 只有 `JSON.parse(JSON.stringify(wes))` 這個方法會遍歷每一層的物件，其他方法都只能 copy 一層
