@@ -27,14 +27,14 @@
 > [Demo](https://hcwxd.github.io/JavaScript30/06%20-%20Type%20Ahead/index.html)
 
 ### 07 - Array Cardio Day 2
+
 > [Demo](https://hcwxd.github.io/JavaScript30/07%20-%20Array%20Cardio%20Day%202/index.html)
 
 ### 08 - Fun with HTML5 Canvas
+
 > [Demo](https://hcwxd.github.io/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/index.html)
 
-
-
-------
+---
 
 ## 01 - JavaScript Drum Kit
 
@@ -317,363 +317,413 @@
     }
     ```
 
-
-
 ## 07 - Array Cardio Day 2
+
 > [Demo](https://hcwxd.github.io/JavaScript30/07%20-%20Array%20Cardio%20Day%202/index.html)
 
-- some
+-   some
 
-  `檢查陣列中元素，有一元素符合條件則回傳 true`
+    `檢查陣列中元素，有一元素符合條件則回傳 true`
 
-  ```javascript
-  const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
-  ```
+    ```javascript
+    const isAdult = people.some((person) => new Date().getFullYear() - person.year >= 19);
+    ```
 
-- every
+-   every
 
-  `檢查陣列中元素，全部元素符合條件則回傳 true`
+    `檢查陣列中元素，全部元素符合條件則回傳 true`
 
-  ```javascript
-  const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
-  ```
+    ```javascript
+    const allAdults = people.every((person) => new Date().getFullYear() - person.year >= 19);
+    ```
 
-- find
+-   find
 
-  `回傳陣列中第一個符合條件的元素`
+    `回傳陣列中第一個符合條件的元素`
 
-  ```javascript
-  const comment = comments.find(comment => comment.id === 823423);
-  ```
+    ```javascript
+    const comment = comments.find((comment) => comment.id === 823423);
+    ```
 
-- findIndex
+-   findIndex
 
-  `回傳陣列中第一個符合條件的元素索引`
+    `回傳陣列中第一個符合條件的元素索引`
 
-  ```javascript
-  const index = comments.findIndex(comment => comment.id === 823423);
-  
-  // comments.splice(index, 1);
-  
-  const newComments = [
-      ...comments.slice(0, index),
-      ...comments.slice(index + 1)
-  ];
-  ```
+    ```javascript
+    const index = comments.findIndex((comment) => comment.id === 823423);
 
-- splice vs slice
+    // comments.splice(index, 1);
 
-  - `array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
-  - `array.slice([begin[, end]])`
-  - 用 `slice` 組成新陣列，則可用
+    const newComments = [...comments.slice(0, index), ...comments.slice(index + 1)];
+    ```
 
-  ```javascript
-  const newComments = [
-      ...comments.slice(0, index),
-      ...comments.slice(index + 1)
-  ];
-  ```
+-   splice vs slice
 
+    -   `array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+    -   `array.slice([begin[, end]])`
+    -   用 `slice` 組成新陣列，則可用
 
+    ```javascript
+    const newComments = [...comments.slice(0, index), ...comments.slice(index + 1)];
+    ```
 
 ## 08 - Fun with HTML5 Canvas
+
 > [Demo](https://hcwxd.github.io/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/index.html)
 
-- JS 取得現在視窗大小
+-   JS 取得現在視窗大小
 
-  - `window.innerWidth` , `window.innerHeight`
+    -   `window.innerWidth` , `window.innerHeight`
 
-- Canvas 設置
+-   Canvas 設置
 
-  - 大小設置
+    -   大小設置
 
-  ```javascript
-  const canvas = document.querySelector('#draw');
-  const ctx = canvas.getContext('2d');
-  
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  ```
+    ```javascript
+    const canvas = document.querySelector('#draw');
+    const ctx = canvas.getContext('2d');
 
-  - [lineCap](https://www.w3schools.com/tags/canvas_linecap.asp)
-    - 線段結束樣式
-  - [lineJoin](https://www.w3schools.com/tags/canvas_linejoin.asp)
-    - 線段相交樣式
-  - 繪圖流程
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ```
 
-  ```javascript
-  // Start drawing
-  ctx.beginPath();
-  // start from
-  ctx.moveTo(lastX, lastY);
-  // go to
-  ctx.lineTo(e.offsetX, e.offsetY);
-  // Draw
-  ctx.stroke();
-  ```
+    -   [lineCap](https://www.w3schools.com/tags/canvas_linecap.asp)
+        -   線段結束樣式
+    -   [lineJoin](https://www.w3schools.com/tags/canvas_linejoin.asp)
+        -   線段相交樣式
+    -   繪圖流程
 
-- Array deconstruct 技巧
+    ```javascript
+    // Start drawing
+    ctx.beginPath();
+    // start from
+    ctx.moveTo(lastX, lastY);
+    // go to
+    ctx.lineTo(e.offsetX, e.offsetY);
+    // Draw
+    ctx.stroke();
+    ```
 
-  -   ` [X, Y] = [newX, newY];`
+-   Array deconstruct 技巧
 
-- hsl 顏色
+    -   `[X, Y] = [newX, newY];`
 
-  - `hsl(hue, saturation, lightness)`
-  - hue = 0 ~ 360
-  - saturation, lightness = 0 ~ 100%
+-   hsl 顏色
 
-   
+    -   `hsl(hue, saturation, lightness)`
+    -   hue = 0 ~ 360
+    -   saturation, lightness = 0 ~ 100%
 
 ## 09 - Dev Tools Domination
 
 > [Demo](https://hcwxd.github.io/JavaScript30/09%20-%20Dev%20Tools%20Domination/index.html)
 
-- Chrome dev tools
+-   Chrome dev tools
 
-  - 在元素上按右鍵 => break on => attribute modification
+    -   在元素上按右鍵 => break on => attribute modification
 
-- `console.log()`
+-   `console.log()`
 
-  - `%s` => 加入字串
+    -   `%s` => 加入字串
 
-  ```javascript
-  console.log('Hello I am a %s string!', '💩');
-  ```
+    ```javascript
+    console.log('Hello I am a %s string!', '💩');
+    ```
 
-  - `%c` => 加入 CSS
+    -   `%c` => 加入 CSS
 
-  ```javascript
-  console.log('%c I am some great text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue')
-  ```
+    ```javascript
+    console.log('%c I am some great text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue');
+    ```
 
-- console 系列
+-   console 系列
 
-  - `console.warn()`
-  - `console.error()`
-  - `console.info()`
-  - `console.assert(statement, 'Word that show when statement == false')`
+    -   `console.warn()`
+    -   `console.error()`
+    -   `console.info()`
+    -   `console.assert(statement, 'Word that show when statement == false')`
 
-  ```javascript
-  console.assert(p.classList.contains('ouch'), 'That is wrong!');
-  ```
+    ```javascript
+    console.assert(p.classList.contains('ouch'), 'That is wrong!');
+    ```
 
-  - `console.clear()`
-  - `console.dir()`
+    -   `console.clear()`
+    -   `console.dir()`
 
-  ```javascript
-  console.log(p);
-  console.dir(p);
-  ```
+    ```javascript
+    console.log(p);
+    console.dir(p);
+    ```
 
-  - `console.group()` / `console.groupCollapsed()` + `console.log()` *n + `console.groupEnd()`
+    -   `console.group()` / `console.groupCollapsed()` + `console.log()` \*n + `console.groupEnd()`
 
-  ```javascript
-  dogs.forEach(dog => {
-      console.groupCollapsed(`${dog.name}`);
-      console.log(`This is ${dog.name}`);
-      console.log(`${dog.name} is ${dog.age} years old`);
-      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
-      console.groupEnd(`${dog.name}`);
-  });
-  ```
+    ```javascript
+    dogs.forEach((dog) => {
+        console.groupCollapsed(`${dog.name}`);
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old`);
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+        console.groupEnd(`${dog.name}`);
+    });
+    ```
 
-  - `console.count()`
-  - `console.time()` + `console.timeEnd()`
+    -   `console.count()`
+    -   `console.time()` + `console.timeEnd()`
 
-  ```javascript
-  console.time('fetching data');
-  fetch('https://api.github.com/users/wesbos')
-      .then(data => data.json())
-      .then(data => {
-      console.timeEnd('fetching data');
-      console.log(data);
-  });
-  ```
+    ```javascript
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+        .then((data) => data.json())
+        .then((data) => {
+            console.timeEnd('fetching data');
+            console.log(data);
+        });
+    ```
 
-  - `console.table()`
+    -   `console.table()`
 
 ## 10 - Hold Shift and Check Checkboxes
 
 > [Demo](https://hcwxd.github.io/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index.html)
 
-- 偵測使用者用 shift 鍵做選取
+-   偵測使用者用 shift 鍵做選取
 
-  - `e.shiftKey`
+    -   `e.shiftKey`
 
-- \<input>[type="checkbox"]
+-   \<input>[type="checkbox"]
 
-  用 `input:checked+指定元素` 去操作打勾後的 CSS 變化
+    用 `input:checked+指定元素` 去操作打勾後的 CSS 變化
 
-  ```javascript
-  input:checked+p {
-      background: #F9F9F9;
-      text-decoration: line-through;
-  }
-  ```
+    ```javascript
+    input:checked+p {
+        background: #F9F9F9;
+        text-decoration: line-through;
+    }
+    ```
 
-- 用 !isBoolean 操作 toggle
+-   用 !isBoolean 操作 toggle
 
-  ```javascript
-  if (node === lastChecked || node === this) {
-      isInBetween = !isInBetween;
-  }
-  ```
+    ```javascript
+    if (node === lastChecked || node === this) {
+        isInBetween = !isInBetween;
+    }
+    ```
 
-
-
- ## 11 - Custom Video Player
+## 11 - Custom Video Player
 
 > [Demo](https://hcwxd.github.io/JavaScript30/11%20-%20Custom%20Video%20Player/index.html)
 
-- \<video> html tag
+-   \<video> html tag
 
-  - 自動播放：`autoplay`
+    -   自動播放：`autoplay`
 
-- \<video> node 操作
+-   \<video> node 操作
 
-  - 影片是否暫停：`video.paused`
-  - 影片目前時間：`video.currentTime`
-  - 影片總共時間：`video.duration`
-  - 播放影片：`video.play()`
-  - 暫停影片：`video.pause()`
-  - 監聽事件：`video.addEventListener('play'/'pause'/'timeupdate');`
+    -   影片是否暫停：`video.paused`
+    -   影片目前時間：`video.currentTime`
+    -   影片總共時間：`video.duration`
+    -   播放影片：`video.play()`
+    -   暫停影片：`video.pause()`
+    -   監聽事件：`video.addEventListener('play'/'pause'/'timeupdate');`
 
-- `querySelector`  可以將 node 當作目標選取內元素
+-   `querySelector` 可以將 node 當作目標選取內元素
 
-  ```javascript
-  const player = document.querySelector('.player');
-  const video = player.querySelector('.viewer');
-  ```
+    ```javascript
+    const player = document.querySelector('.player');
+    const video = player.querySelector('.viewer');
+    ```
 
-- `querySelector` 可以將 attribute 當作 selector
+-   `querySelector` 可以將 attribute 當作 selector
 
-  ```javascript
-  const skipButtons = player.querySelectorAll('[data-skip]');
-  ```
+    ```javascript
+    const skipButtons = player.querySelectorAll('[data-skip]');
+    ```
 
-- 將物件 method 當作變數執行
+-   將物件 method 當作變數執行
 
-  ```javascript
-  const method = video.paused ? 'play' : 'pause';
-  video[method]();
-  ```
+    ```javascript
+    const method = video.paused ? 'play' : 'pause';
+    video[method]();
+    ```
 
-- 改變 node 內文字正統方法
+-   改變 node 內文字正統方法
 
-  ```javascript
-  toggle.textContent = icon;
-  ```
+    ```javascript
+    toggle.textContent = icon;
+    ```
 
-- \<input> range 改變屬性的簡潔寫法
+-   \<input> range 改變屬性的簡潔寫法
 
-  HTML
+    HTML
 
-  ```html
-  <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
-  <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
-  ```
+    ```html
+    <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+    <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+    ```
 
-  JS
+    JS
 
-  ```javascript
-  function handleRangeUpdate() {
-    video[this.name] = this.value;
-  }
-  ```
+    ```javascript
+    function handleRangeUpdate() {
+        video[this.name] = this.value;
+    }
+    ```
 
-- flex 調整比例做進度條
+-   flex 調整比例做進度條
 
-  - 外層元素
-    - `display: flex`
-    -   `flex: >0`
-    - `flex-basis: 100%`
-  - 內層元素
-    - `flex: 0`
-    - `flex-basis: progress percentage`
+    -   外層元素
+        -   `display: flex`
+        -   `flex: >0`
+        -   `flex-basis: 100%`
+    -   內層元素
+        -   `flex: 0`
+        -   `flex-basis: progress percentage`
 
-- JS 選取元素長度
+-   JS 選取元素長度
 
-  - `e.offsetX`
-  - `node.offsetWidth`
+    -   `e.offsetX`
+    -   `node.offsetWidth`
 
-- if statement 則執行一個 function 的簡潔寫法
+-   if statement 則執行一個 function 的簡潔寫法
 
-  ```javascript
-  (e) => mousedown && scrub(e)
-  ```
-
-  
+    ```javascript
+    (e) => mousedown && scrub(e);
+    ```
 
 ## 12 - Key Sequence Detection
 
 > [Demo](https://hcwxd.github.io/JavaScript30/12%20-%20Key%20Sequence%20Detection/index.html)
 
-- 監聽按鍵事件
-  - `addEventListener('keyup', (e)=>{console.log(e.key)})`
-- `.splice()`
-  - `array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
-  - start 若為負，則從最後一個元素往前數（-1 開始）
-
-
+-   監聽按鍵事件
+    -   `addEventListener('keyup', (e)=>{console.log(e.key)})`
+-   `.splice()`
+    -   `array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+    -   start 若為負，則從最後一個元素往前數（-1 開始）
 
 ## 13 - Slide in on Scroll
 
 > [Demo](https://hcwxd.github.io/JavaScript30/13%20-%20Slide%20in%20on%20Scroll/index.html)
 
-- debounce
+-   debounce
 
-  - Scroll 事件觸發太頻繁，需要限制單位時間內觸發頻率
-  - lodash 中有現成的
+    -   Scroll 事件觸發太頻繁，需要限制單位時間內觸發頻率
+    -   lodash 中有現成的
 
-- 計算 Scroll 高度 `scrollY` + `innerHeight`
+-   計算 Scroll 高度 `scrollY` + `innerHeight`
 
-  -  `window.scrollY`：視窗上緣離網頁上緣的距離
-  -  `window.innerHeight`：視窗目前的高度
+    -   `window.scrollY`：視窗上緣離網頁上緣的距離
+    -   `window.innerHeight`：視窗目前的高度
 
-- 計算網頁到元素最上緣的距離
+-   計算網頁到元素最上緣的距離
 
-  ```javascript
-  const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height;
-  ```
+    ```javascript
+    const slideInAt = window.scrollY + window.innerHeight - sliderImage.height;
+    ```
 
-- 計算網頁到元素最下緣的距離
+-   計算網頁到元素最下緣的距離
 
-  ```javascript
-  const imageBottom = sliderImage.offsetTop + sliderImage.height;
-  ```
+    ```javascript
+    const imageBottom = sliderImage.offsetTop + sliderImage.height;
+    ```
 
-- node.offsetTop
+-   node.offsetTop
 
-  - 計算元素上緣離網頁上緣的距離
-
-
+    -   計算元素上緣離網頁上緣的距離
 
 ## 14 - JavaScript References VS Copying
 
 > [Demo](https://hcwxd.github.io/JavaScript30/14%20-%20JavaScript%20References%20VS%20Copying/index.html)
 
-- copy 一個陣列的四種方法
+-   copy 一個陣列的四種方法
 
-  ```javascript
-  const team2 = players.slice();
-  
-  const team3 = [].concat(players);
-  
-  const team4 = [...players];
-  
-  const team5 = Array.from(players);
-  ```
+    ```javascript
+    const team2 = players.slice();
 
-- copt 一個物件的三種方法
+    const team3 = [].concat(players);
 
-  ```javascript
-  const cap2 = Object.assign({}, person, { number: 99, age: 12 });
-  
-  const cap3 = {...person};
-  
-  const dev2 = JSON.parse(JSON.stringify(wes));
-  ```
+    const team4 = [...players];
 
-- Note
+    const team5 = Array.from(players);
+    ```
 
-  - 只有 `JSON.parse(JSON.stringify(wes))` 這個方法會遍歷每一層的物件，其他方法都只能 copy 一層
+-   copt 一個物件的三種方法
+
+    ```javascript
+    const cap2 = Object.assign({}, person, { number: 99, age: 12 });
+
+    const cap3 = { ...person };
+
+    const dev2 = JSON.parse(JSON.stringify(wes));
+    ```
+
+-   Note
+
+    -   只有 `JSON.parse(JSON.stringify(wes))` 這個方法會遍歷每一層的物件，其他方法都只能 copy 一層
+
+## 15 - LocalStorage
+
+> [Demo](https://hcwxd.github.io/JavaScript30/15%20-%20LocalStorage/index.html)
+
+-   \<form> tag
+
+    -   default 在 submit 事件發生後會重新整理頁面
+    -   `form.addEventListener('submit')` 會吃到 `enter`、`click` 等等
+    -   存取 form tag 裡的 input
+
+    ```javascript
+    const text = this.querySelector('[name=item]').value;
+    ```
+
+    -   `this.reset()` 可以把 input 清空
+
+-   \<label> tag
+
+    -   checkbox 實作：連結 `id` => `for`
+
+    ```javascript
+    <input type="checkbox" data-index=${i} id="item${i}"/>
+    <label for="item${i}">${plate.text}</label>
+    ```
+
+    -   CSS：用 `input:checked + label:before` 控制變化
+
+    ```css
+    .plates input {
+        display: none;
+    }
+
+    .plates input + label:before {
+        content: '⬜️';
+        margin-right: 10px;
+    }
+
+    .plates input:checked + label:before {
+        content: '🌮';
+    }
+    ```
+
+-   Local Storage
+
+    -   Dev tools：Application => Storage => Local Storage
+    -   API
+
+    ```javascript
+    localStorage.setItems('key', 'value');
+    localStorage.getItem('key');
+    localStorage.remove('key');
+    ```
+
+    -   value 會被強制 `toString()`，所以設置前要先把 object 轉成 string
+
+    ```javascript
+    localStorage.setItem('items', JSON.stringify(items));
+    ```
+
+-   Delegation
+
+    -   把監聽事件放在外層元素，讓內層新增的元素也可以被監聽
+    -   用 `e.target.matches('yourTarget')` 指定
+
+-   `array.map()`
+
+    -   map 吃得第二個參數為 index
