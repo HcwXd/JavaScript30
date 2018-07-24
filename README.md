@@ -727,3 +727,28 @@
 -   `array.map()`
 
     -   map 吃得第二個參數為 index
+
+## 16 - Mouse Move Shadow
+
+> [Demo](https://hcwxd.github.io/JavaScript30/16%20-%20Mouse%20Move%20Shadow/index.html)
+
+-   可編輯文字的 tag attribute
+
+    -   `contenteditable`
+
+-   destructor
+
+    ```javascript
+    const { offsetWidth: width, offsetHeight: height } = hero;
+    let { offsetX: x, offsetY: y } = e;
+    ```
+
+-   JS 中的四捨五入
+
+    -   `math.round()`
+
+-   CSS `textShadow` ：可以同時給多個值
+
+    ```css
+    ${xShadow}px ${yShadow}px ${blur}px ${color}
+    ```
