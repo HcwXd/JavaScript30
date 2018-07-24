@@ -34,6 +34,38 @@
 
 > [Demo](https://hcwxd.github.io/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/index.html)
 
+### 09 - Dev Tools Domination
+
+> [Demo](https://hcwxd.github.io/JavaScript30/09%20-%20Dev%20Tools%20Domination/index.html)
+
+### 10 - Hold Shift and Check Checkboxes
+
+> [Demo](https://hcwxd.github.io/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index.html)
+
+### 11 - Custom Video Player
+
+> [Demo](https://hcwxd.github.io/JavaScript30/11%20-%20Custom%20Video%20Player/index.html)
+
+### 12 - Key Sequence Detection
+
+> [Demo](https://hcwxd.github.io/JavaScript30/12%20-%20Key%20Sequence%20Detection/index.html)
+
+### 13 - Slide in on Scroll
+
+> [Demo](https://hcwxd.github.io/JavaScript30/13%20-%20Slide%20in%20on%20Scroll/index.html)
+
+### 14 - JavaScript References VS Copying
+
+> [Demo](https://hcwxd.github.io/JavaScript30/14%20-%20JavaScript%20References%20VS%20Copying/index.html)
+
+### 15 - LocalStorage
+
+> [Demo](https://hcwxd.github.io/JavaScript30/15%20-%20LocalStorage/index.html)
+
+### 16 - Mouse Move Shadow
+
+> [Demo](https://hcwxd.github.io/JavaScript30/16%20-%20Mouse%20Move%20Shadow/index.html)
+
 ---
 
 ## 01 - JavaScript Drum Kit
