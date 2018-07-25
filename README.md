@@ -784,3 +784,17 @@
     ```css
     ${xShadow}px ${yShadow}px ${blur}px ${color}
     ```
+
+## 17 - Sort Without Articles
+
+> [Demo](https://hcwxd.github.io/JavaScript30/17%20-%20Sort%20Without%20Articles/index.html)
+
+-   RegExp
+
+    -   對照前綴有無 a the then
+
+        ```javascript
+        return bandName.replace(/^(a |the |an )/i, '').trim();
+        ```
+
+    -   注意對照空格 `(a |the )` 跟`(a|the)` 還有 `(a| the |)` 結果不同
