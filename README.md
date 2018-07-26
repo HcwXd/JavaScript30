@@ -798,3 +798,29 @@
         ```
 
     -   注意對照空格 `(a |the )` 跟`(a|the)` 還有 `(a| the |)` 結果不同
+
+
+
+## 18 - Adding Up Times with Reduce
+
+> [Demo](https://hcwxd.github.io/JavaScript30/18%20-%20Adding%20Up%20Times%20with%20Reduce/index.html)
+
+- 轉換陣列元素型態到數值
+
+  ```javascript
+  array.map(parseFloat);
+  ```
+
+- 轉換 NodeList 到 Array
+
+  ```javascript
+  // Array.from
+  const timeNodes = Array.from(document.querySelectorAll('[data]'));
+  
+  // Spread
+  const timeNodes = [...document.querySelectorAll('[data]')];
+  ```
+
+- 無條件捨去
+
+  - `Math.floor()`
