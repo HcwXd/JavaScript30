@@ -799,197 +799,207 @@
 
     -   注意對照空格 `(a |the )` 跟`(a|the)` 還有 `(a| the |)` 結果不同
 
-
-
 ## 18 - Adding Up Times with Reduce
 
 > [Demo](https://hcwxd.github.io/JavaScript30/18%20-%20Adding%20Up%20Times%20with%20Reduce/index.html)
 
-- 轉換陣列元素型態到數值
+-   轉換陣列元素型態到數值
 
-  ```javascript
-  array.map(parseFloat);
-  ```
+    ```javascript
+    array.map(parseFloat);
+    ```
 
-- 轉換 NodeList 到 Array
+-   轉換 NodeList 到 Array
 
-  ```javascript
-  // Array.from
-  const timeNodes = Array.from(document.querySelectorAll('[data]'));
-  
-  // Spread
-  const timeNodes = [...document.querySelectorAll('[data]')];
-  ```
+    ```javascript
+    // Array.from
+    const timeNodes = Array.from(document.querySelectorAll('[data]'));
 
-- 無條件捨去
+    // Spread
+    const timeNodes = [...document.querySelectorAll('[data]')];
+    ```
 
-  - `Math.floor()`
+-   無條件捨去
 
-
+    -   `Math.floor()`
 
 ## 19 - Webcam Fun
 
-- 取得 Webcam 權限
+-   取得 Webcam 權限
 
-  - 需要開在安全的`server` / `localhost`
-  - 可以用簡單的 `package.json`
+    -   需要開在安全的`server` / `localhost`
+    -   可以用簡單的 `package.json`
 
-  ```javascript
-  {
-    "name": "gum",
-    "version": "1.0.0",
-    "description": "",
-    "main": "scripts.js",
-    "scripts": {
-      "start": "browser-sync start --server --files \"*.css, *.html, *.js\""
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-      "browser-sync": "^2.12.5 <2.23.2"
+    ```javascript
+    {
+      "name": "gum",
+      "version": "1.0.0",
+      "description": "",
+      "main": "scripts.js",
+      "scripts": {
+        "start": "browser-sync start --server --files \"*.css, *.html, *.js\""
+      },
+      "author": "",
+      "license": "ISC",
+      "devDependencies": {
+        "browser-sync": "^2.12.5 <2.23.2"
+      }
     }
-  }
-  ```
+    ```
 
-- JS 中取得 Webcam 影像
+-   JS 中取得 Webcam 影像
 
-  - `navigator.mediaDevices.getUserMedia` 會得到一個 Promise 物件
-  - `video.src = window.URL.createObjectURL(localMediaStream);` 拿到影像
+    -   `navigator.mediaDevices.getUserMedia` 會得到一個 Promise 物件
+    -   `video.src = window.URL.createObjectURL(localMediaStream);` 拿到影像
 
-  ```javascript
-  navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-      .then(localMediaStream => {
-        console.log(localMediaStream);
-        video.src = window.URL.createObjectURL(localMediaStream);
-        video.play();
-      })
-      .catch(err => {
-        console.error(`OH NO!!!`, err);
-      });
-  ```
+    ```javascript
+    navigator.mediaDevices
+        .getUserMedia({ video: true, audio: false })
+        .then((localMediaStream) => {
+            console.log(localMediaStream);
+            video.src = window.URL.createObjectURL(localMediaStream);
+            video.play();
+        })
+        .catch((err) => {
+            console.error(`OH NO!!!`, err);
+        });
+    ```
 
-- 拿到 video 的實際寬高
+-   拿到 video 的實際寬高
 
-  - `video.videoHieght` , `video.videoWidth`
+    -   `video.videoHieght` , `video.videoWidth`
 
-- 用 canvas 輸出 Webcame Stream
+-   用 canvas 輸出 Webcame Stream
 
-  ```javascript
-  return setInterval(() => {
-      ctx.drawImage(video, 0, 0, width, height);
-      // take the pixels out
-      let pixels = ctx.getImageData(0, 0, width, height);
-  }, 16);
-  ```
+    ```javascript
+    return setInterval(() => {
+        ctx.drawImage(video, 0, 0, width, height);
+        // take the pixels out
+        let pixels = ctx.getImageData(0, 0, width, height);
+    }, 16);
+    ```
 
-- 監聽 video 準備好的事件
+-   監聽 video 準備好的事件
 
-  ```javascript
-  video.addEventListener('canplay', paintToCanvas);
-  ```
+    ```javascript
+    video.addEventListener('canplay', paintToCanvas);
+    ```
 
-- 把 canvas 資料取出，轉化成 Base64
+-   把 canvas 資料取出，轉化成 Base64
 
-  ```javascript
-  const data = canvas.toDataURL('image/jpeg');
-  const link = document.createElement('a');
-  link.href = data;
-  ```
+    ```javascript
+    const data = canvas.toDataURL('image/jpeg');
+    const link = document.createElement('a');
+    link.href = data;
+    ```
 
-- Base64 資料
+-   Base64 資料
 
-  - 基本上圖片轉換成一長串的字串，可以直接代表圖片，因此在網頁中把圖片打開，其實只是讓瀏覽器解析那一長串的字串代表什麼樣的圖片
+    -   基本上圖片轉換成一長串的字串，可以直接代表圖片，因此在網頁中把圖片打開，其實只是讓瀏覽器解析那一長串的字串代表什麼樣的圖片
 
-- 設定可下載的連結跟預覽
+-   設定可下載的連結跟預覽
 
-  ```javascript
-  link.setAttribute('download', 'handsome');
-  link.innerHTML = <img src="${data}" alt="Handsome Man" />; 
-  ```
+    ```javascript
+    link.setAttribute('download', 'handsome');
+    link.innerHTML = <img src="${data}" alt="Handsome Man" />;
+    ```
 
-- 取得 canvas 中影像的 pixel
+-   取得 canvas 中影像的 pixel
 
-  ```javascript
-  let pixels = ctx.getImageData(0, 0, width, height);
-  ```
+    ```javascript
+    let pixels = ctx.getImageData(0, 0, width, height);
+    ```
 
-- 更改 pixel 產生 filter
+-   更改 pixel 產生 filter
 
-  - pixel.data 為一個陣列，每個影像上的點都由四個連續的數值決定，從 `pixel[0]` 到 `pixel[3]` 分別代表 rgba
+    -   pixel.data 為一個陣列，每個影像上的點都由四個連續的數值決定，從 `pixel[0]` 到 `pixel[3]` 分別代表 rgba
 
-  ```javascript
-  function redEffect(pixels) {
-    for (let i = 0; i < pixels.data.length; i+=4) {
-      pixels.data[i + 0] = pixels.data[i + 0] + 200; // RED
-      pixels.data[i + 1] = pixels.data[i + 1] - 50; // GREEN
-      pixels.data[i + 2] = pixels.data[i + 2] * 0.5; // Blue
+    ```javascript
+    function redEffect(pixels) {
+        for (let i = 0; i < pixels.data.length; i += 4) {
+            pixels.data[i + 0] = pixels.data[i + 0] + 200; // RED
+            pixels.data[i + 1] = pixels.data[i + 1] - 50; // GREEN
+            pixels.data[i + 2] = pixels.data[i + 2] * 0.5; // Blue
+        }
+        return pixels;
     }
-    return pixels;
-  }
-  ```
+    ```
 
-  - 製造出 rgba 分離
+    -   製造出 rgba 分離
 
-  ```javascript
-  function rgbSplit(pixels) {
-    for (let i = 0; i < pixels.data.length; i+=4) {
-      pixels.data[i - 150] = pixels.data[i + 0]; // RED
-      pixels.data[i + 500] = pixels.data[i + 1]; // GREEN
-      pixels.data[i - 550] = pixels.data[i + 2]; // Blue
+    ```javascript
+    function rgbSplit(pixels) {
+        for (let i = 0; i < pixels.data.length; i += 4) {
+            pixels.data[i - 150] = pixels.data[i + 0]; // RED
+            pixels.data[i + 500] = pixels.data[i + 1]; // GREEN
+            pixels.data[i - 550] = pixels.data[i + 2]; // Blue
+        }
+        return pixels;
     }
-    return pixels;
-  }
-  ```
+    ```
 
-  - 製造殘影
+    -   製造殘影
 
-  ```javascript
-  ctx.globalAlpha = 0.1;
-  ```
+    ```javascript
+    ctx.globalAlpha = 0.1;
+    ```
 
-- 把更改後的 pixel 放回 canvas
+-   把更改後的 pixel 放回 canvas
 
-  ```javascript
-  ctx.putImageData(pixels, 0, 0);
-  ```
+    ```javascript
+    ctx.putImageData(pixels, 0, 0);
+    ```
 
-- prepend child 的方法
+-   prepend child 的方法
 
-  ```javascript
-  outer.insertBefore(inner, outer.firsChild);
-  ```
+    ```javascript
+    outer.insertBefore(inner, outer.firsChild);
+    ```
 
-- debugger
+-   debugger
 
-  - 可以直接在 JS 中設置暫停點
-
-
+    -   可以直接在 JS 中設置暫停點
 
 ## 20 - Speech Detection
 
-- 瀏覽器中的 Speech Recognition 
+-   瀏覽器中的 Speech Recognition
 
-  - `window.SpeechRecognition`  or  `window.webkitSpeechRecognition`
+    -   `window.SpeechRecognition` or `window.webkitSpeechRecognition`
 
-- 基本設置
+-   基本設置
 
-  ```javascript
-  const recognition = new SpeechRecognition();
-  // ? 即時辨識 : 停頓辨識
-  recognition.interimResults = true;
-  recognition.lang = 'en-US';
-  
-  recognition.start();
-  ```
+    ```javascript
+    const recognition = new SpeechRecognition();
+    // ? 即時辨識 : 停頓辨識
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
 
-- 監聽 recognition 事件
+    recognition.start();
+    ```
 
-  - `recognition.addEventListener('result')`
+-   監聽 recognition 事件
 
-  - `recognition.addEventListener('end')`
+    -   `recognition.addEventListener('result')`
 
-- result 回傳事件
+    -   `recognition.addEventListener('end')`
 
-  - `e.results` => 回傳一個 `SpeechRecognitionResultList`
-  - `e.results[0].isFinal` => 回傳布林值判斷是否有斷句
-  - `e.results[0].transript` => 回傳辨識結果
+-   result 回傳事件
+
+    -   `e.results` => 回傳一個 `SpeechRecognitionResultList`
+    -   `e.results[0].isFinal` => 回傳布林值判斷是否有斷句
+    -   `e.results[0].transript` => 回傳辨識結果
+
+## 21 - Geolocation
+
+## 22 - Follow Along Link Highlighter
+
+> [Demo](https://hcwxd.github.io/JavaScript30/22%20-%20Follow%20Along%20Link%20Highlighter/index.html)
+
+-   Navigator transition 效果
+    -   見 [stripe 官網](https://stripe.com/)
+-   highlight 隨滑鼠移動
+    -   用一個 block 元素，在 link 跟 link 之間 hover 時移動
+-   得到元素位置與大小
+    -   `this.getBoundingClientRect()`
+-   讓元素隨 link 位置移動
+    -   用 `translate` 的話，要加上 `scroll` 的數值
