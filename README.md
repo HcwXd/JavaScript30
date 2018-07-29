@@ -962,3 +962,33 @@
 - debugger
 
   - 可以直接在 JS 中設置暫停點
+
+
+
+## 20 - Speech Detection
+
+- 瀏覽器中的 Speech Recognition 
+
+  - `window.SpeechRecognition`  or  `window.webkitSpeechRecognition`
+
+- 基本設置
+
+  ```javascript
+  const recognition = new SpeechRecognition();
+  // ? 即時辨識 : 停頓辨識
+  recognition.interimResults = true;
+  recognition.lang = 'en-US';
+  
+  recognition.start();
+  ```
+
+- 監聽 recognition 事件
+
+  - `recognition.addEventListener('result')`
+
+  - `recognition.addEventListener('end')`
+
+- result 回傳事件
+
+  - `e.results` => 回傳一個 `SpeechRecognitionResultList`
+  - `e.results[0]` => 
