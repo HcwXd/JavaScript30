@@ -824,3 +824,141 @@
 - 無條件捨去
 
   - `Math.floor()`
+
+
+
+## 19 - Webcam Fun
+
+- 取得 Webcam 權限
+
+  - 需要開在安全的`server` / `localhost`
+  - 可以用簡單的 `package.json`
+
+  ```javascript
+  {
+    "name": "gum",
+    "version": "1.0.0",
+    "description": "",
+    "main": "scripts.js",
+    "scripts": {
+      "start": "browser-sync start --server --files \"*.css, *.html, *.js\""
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "browser-sync": "^2.12.5 <2.23.2"
+    }
+  }
+  ```
+
+- JS 中取得 Webcam 影像
+
+  - `navigator.mediaDevices.getUserMedia` 會得到一個 Promise 物件
+  - `video.src = window.URL.createObjectURL(localMediaStream);` 拿到影像
+
+  ```javascript
+  navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+      .then(localMediaStream => {
+        console.log(localMediaStream);
+        video.src = window.URL.createObjectURL(localMediaStream);
+        video.play();
+      })
+      .catch(err => {
+        console.error(`OH NO!!!`, err);
+      });
+  ```
+
+- 拿到 video 的實際寬高
+
+  - `video.videoHieght` , `video.videoWidth`
+
+- 用 canvas 輸出 Webcame Stream
+
+  ```javascript
+  return setInterval(() => {
+      ctx.drawImage(video, 0, 0, width, height);
+      // take the pixels out
+      let pixels = ctx.getImageData(0, 0, width, height);
+  }, 16);
+  ```
+
+- 監聽 video 準備好的事件
+
+  ```javascript
+  video.addEventListener('canplay', paintToCanvas);
+  ```
+
+- 把 canvas 資料取出，轉化成 Base64
+
+  ```javascript
+  const data = canvas.toDataURL('image/jpeg');
+  const link = document.createElement('a');
+  link.href = data;
+  ```
+
+- Base64 資料
+
+  - 基本上圖片轉換成一長串的字串，可以直接代表圖片，因此在網頁中把圖片打開，其實只是讓瀏覽器解析那一長串的字串代表什麼樣的圖片
+
+- 設定可下載的連結跟預覽
+
+  ```javascript
+  link.setAttribute('download', 'handsome');
+  link.innerHTML = <img src="${data}" alt="Handsome Man" />; 
+  ```
+
+- 取得 canvas 中影像的 pixel
+
+  ```javascript
+  let pixels = ctx.getImageData(0, 0, width, height);
+  ```
+
+- 更改 pixel 產生 filter
+
+  - pixel.data 為一個陣列，每個影像上的點都由四個連續的數值決定，從 `pixel[0]` 到 `pixel[3]` 分別代表 rgba
+
+  ```javascript
+  function redEffect(pixels) {
+    for (let i = 0; i < pixels.data.length; i+=4) {
+      pixels.data[i + 0] = pixels.data[i + 0] + 200; // RED
+      pixels.data[i + 1] = pixels.data[i + 1] - 50; // GREEN
+      pixels.data[i + 2] = pixels.data[i + 2] * 0.5; // Blue
+    }
+    return pixels;
+  }
+  ```
+
+  - 製造出 rgba 分離
+
+  ```javascript
+  function rgbSplit(pixels) {
+    for (let i = 0; i < pixels.data.length; i+=4) {
+      pixels.data[i - 150] = pixels.data[i + 0]; // RED
+      pixels.data[i + 500] = pixels.data[i + 1]; // GREEN
+      pixels.data[i - 550] = pixels.data[i + 2]; // Blue
+    }
+    return pixels;
+  }
+  ```
+
+  - 製造殘影
+
+  ```javascript
+  ctx.globalAlpha = 0.1;
+  ```
+
+- 把更改後的 pixel 放回 canvas
+
+  ```javascript
+  ctx.putImageData(pixels, 0, 0);
+  ```
+
+- prepend child 的方法
+
+  ```javascript
+  outer.insertBefore(inner, outer.firsChild);
+  ```
+
+- debugger
+
+  - 可以直接在 JS 中設置暫停點
