@@ -991,4 +991,5 @@
 - result 回傳事件
 
   - `e.results` => 回傳一個 `SpeechRecognitionResultList`
-  - `e.results[0]` => 
+  - `e.results[0].isFinal` => 回傳布林值判斷是否有斷句
+  - `e.results[0].transript` => 回傳辨識結果
