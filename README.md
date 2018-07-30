@@ -991,6 +991,17 @@
 
 ## 21 - Geolocation
 
+-   模擬器
+    -   Xcode => Open Dev Tool => Simulator
+    -   Xcode 上可以打開 Dev Tool 的 console
+    -   Simulator => Debug => Location 可以模擬通勤方式
+-   持續檢視位置
+    -   `navigator.geolocation.watchPosition(data)`
+-   移動速度
+    -   `data.coords.speed`
+-   移動方位
+    -   `data.coords.heading`
+
 ## 22 - Follow Along Link Highlighter
 
 > [Demo](https://hcwxd.github.io/JavaScript30/22%20-%20Follow%20Along%20Link%20Highlighter/index.html)
