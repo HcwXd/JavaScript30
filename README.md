@@ -1014,3 +1014,77 @@
     -   `this.getBoundingClientRect()`
 -   讓元素隨 link 位置移動
     -   用 `translate` 的話，要加上 `scroll` 的數值
+
+## 23 - Speech Synthesis
+
+> [Demo](https://hcwxd.github.io/JavaScript30/23%20-%20Speech%20Synthesis/index.html)
+
+- 把 text 轉換成 voice
+
+  - `speechSynthesis` 負責接收文字轉換發出聲音
+  - `new SpeechSynthesisUtterance()` 負責設定文字素材
+
+- 監聽 `speechSynthesis` 事件
+
+  - ```javascript
+    speechSynthesis.addEventListener('voiceschanged', populateVoices);
+    ```
+
+- `speechSynthesis` method
+
+  - `.getVoice()` 得到發出聲音的人 `.name` 和語言縮寫 `.lang`
+  - `.speak()` 發出聲音
+  - `.cancel()` 終止發聲
+
+- 從 dropdown 選單找對應 property
+
+  ```javascript
+  msg.voice = voices.find(voice => voice.name === this.value);
+  ```
+
+- 在 addEventListener 中的 callback 加入參數的方法
+
+  - bind
+
+  ```javascript
+  addEventListener('event', toggle.bind(null, this))
+  ```
+
+  - arrow function
+
+  ```javascript
+  addEventListener('event', ()=>toggle(false))
+  ```
+
+- 重複利用同個 function 做 speak 跟 stop（類似多型概念）
+
+  - 用 default parameter，對特定的再傳另外的 parameter
+
+  ```JavaScript
+  function togglePlay(startOver = true) {
+      speechSynthesis.cancel();
+      if (startOver) {
+          speechSynthesis.speak(msg);
+      }
+  }
+  
+  speakButton.addEventListener('click', togglePlay);
+  stopButton.addEventListener('click', () => togglePlay(false));
+  ```
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
