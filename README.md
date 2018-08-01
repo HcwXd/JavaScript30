@@ -1019,72 +1019,65 @@
 
 > [Demo](https://hcwxd.github.io/JavaScript30/23%20-%20Speech%20Synthesis/index.html)
 
-- 把 text 轉換成 voice
+-   把 text 轉換成 voice
 
-  - `speechSynthesis` 負責接收文字轉換發出聲音
-  - `new SpeechSynthesisUtterance()` 負責設定文字素材
+    -   `speechSynthesis` 負責接收文字轉換發出聲音
+    -   `new SpeechSynthesisUtterance()` 負責設定文字素材
 
-- 監聽 `speechSynthesis` 事件
+-   監聽 `speechSynthesis` 事件
 
-  - ```javascript
-    speechSynthesis.addEventListener('voiceschanged', populateVoices);
+    -   ```javascript
+        speechSynthesis.addEventListener('voiceschanged', populateVoices);
+        ```
+
+-   `speechSynthesis` method
+
+    -   `.getVoice()` 得到發出聲音的人 `.name` 和語言縮寫 `.lang`
+    -   `.speak()` 發出聲音
+    -   `.cancel()` 終止發聲
+
+-   從 dropdown 選單找對應 property
+
+    ```javascript
+    msg.voice = voices.find((voice) => voice.name === this.value);
     ```
 
-- `speechSynthesis` method
+-   在 addEventListener 中的 callback 加入參數的方法
 
-  - `.getVoice()` 得到發出聲音的人 `.name` 和語言縮寫 `.lang`
-  - `.speak()` 發出聲音
-  - `.cancel()` 終止發聲
+    -   bind
 
-- 從 dropdown 選單找對應 property
+    ```javascript
+    addEventListener('event', toggle.bind(null, this));
+    ```
 
-  ```javascript
-  msg.voice = voices.find(voice => voice.name === this.value);
-  ```
+    -   arrow function
 
-- 在 addEventListener 中的 callback 加入參數的方法
+    ```javascript
+    addEventListener('event', () => toggle(false));
+    ```
 
-  - bind
+-   重複利用同個 function 做 speak 跟 stop（類似多型概念）
 
-  ```javascript
-  addEventListener('event', toggle.bind(null, this))
-  ```
+    -   用 default parameter，對特定的再傳另外的 parameter
 
-  - arrow function
+    ```JavaScript
+    function togglePlay(startOver = true) {
+        speechSynthesis.cancel();
+        if (startOver) {
+            speechSynthesis.speak(msg);
+        }
+    }
 
-  ```javascript
-  addEventListener('event', ()=>toggle(false))
-  ```
+    speakButton.addEventListener('click', togglePlay);
+    stopButton.addEventListener('click', () => togglePlay(false));
+    ```
 
-- 重複利用同個 function 做 speak 跟 stop（類似多型概念）
+## 24 - Sticky Nav
 
-  - 用 default parameter，對特定的再傳另外的 parameter
+> [Demo](https://hcwxd.github.io/JavaScript30/24%20-%20Sticky%20Nav/index.html)
 
-  ```JavaScript
-  function togglePlay(startOver = true) {
-      speechSynthesis.cancel();
-      if (startOver) {
-          speechSynthesis.speak(msg);
-      }
-  }
-  
-  speakButton.addEventListener('click', togglePlay);
-  stopButton.addEventListener('click', () => togglePlay(false));
-  ```
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-   position fixed
+    -   元素不佔空間，如果為後加的則網頁元素會變動位置
+    -   可用 `padding-top` = `offsetHeight`抵銷
+-   偵測 Nav 跟 網頁最高處的距離
+    -   offsetTop
