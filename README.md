@@ -1081,3 +1081,18 @@
     -   可用 `padding-top` = `offsetHeight`抵銷
 -   偵測 Nav 跟 網頁最高處的距離
     -   offsetTop
+
+
+
+## 25 - Event Capture, Propagation, Bubbling and Once
+
+> [Demo](https://hcwxd.github.io/JavaScript30/25%20-%20Event%20Capture,%20Propagation,%20Bubbling%20and%20Once/index.html)
+
+- Event bubbling
+  - Caputure down, bubble up
+- 只觸發一個
+  - `e.propagation()`
+- addEventListener 的參數
+  - `capture: true` 捕獲階段觸發
+  - `once: ture` 只觸發一次後就 unbind 事件
+
