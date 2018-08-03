@@ -1096,3 +1096,27 @@
   - `capture: true` 捕獲階段觸發
   - `once: ture` 只觸發一次後就 unbind 事件
 
+
+
+## 26 - Stripe Follow Along Nav
+
+> [Demo](https://hcwxd.github.io/JavaScript30/26%20-%20Stripe%20Follow%20Along%20Nav/index.html)
+
+- 從 `display: none` & `opacity: 0`出現的效果
+
+  - 先轉換成 `display: block`，設 setTimeout 讓 `opacity: 1` 在 150ms 後在變換
+  - 要先有 display，transition-duration 才會有效果
+  - 這樣可能會導致在還沒有過 150ms 就 mouseout 時出現 bug，所以要在確定變完第一個時在便第二個
+
+  ```javascript
+  setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
+  
+  ```
+
+- 指定 hover 到的元素下的元素
+
+  ```javascript
+  const dropdown = this.querySelector('.dropdown');
+  const cords = dropdown.getBoundingClientRect();
+  ```
+
