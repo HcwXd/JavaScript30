@@ -1082,41 +1082,65 @@
 -   偵測 Nav 跟 網頁最高處的距離
     -   offsetTop
 
-
-
 ## 25 - Event Capture, Propagation, Bubbling and Once
 
 > [Demo](https://hcwxd.github.io/JavaScript30/25%20-%20Event%20Capture,%20Propagation,%20Bubbling%20and%20Once/index.html)
 
-- Event bubbling
-  - Caputure down, bubble up
-- 只觸發一個
-  - `e.propagation()`
-- addEventListener 的參數
-  - `capture: true` 捕獲階段觸發
-  - `once: ture` 只觸發一次後就 unbind 事件
-
-
+-   Event bubbling
+    -   Caputure down, bubble up
+-   只觸發一個
+    -   `e.propagation()`
+-   addEventListener 的參數
+    -   `capture: true` 捕獲階段觸發
+    -   `once: ture` 只觸發一次後就 unbind 事件
 
 ## 26 - Stripe Follow Along Nav
 
 > [Demo](https://hcwxd.github.io/JavaScript30/26%20-%20Stripe%20Follow%20Along%20Nav/index.html)
 
-- 從 `display: none` & `opacity: 0`出現的效果
+-   從 `display: none` & `opacity: 0`出現的效果
 
-  - 先轉換成 `display: block`，設 setTimeout 讓 `opacity: 1` 在 150ms 後在變換
-  - 要先有 display，transition-duration 才會有效果
-  - 這樣可能會導致在還沒有過 150ms 就 mouseout 時出現 bug，所以要在確定變完第一個時在便第二個
+    -   先轉換成 `display: block`，設 setTimeout 讓 `opacity: 1` 在 150ms 後在變換
+    -   要先有 display，transition-duration 才會有效果
+    -   這樣可能會導致在還沒有過 150ms 就 mouseout 時出現 bug，所以要在確定變完第一個時在便第二個
 
-  ```javascript
-  setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
-  
-  ```
+    ```javascript
+    setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
+    ```
 
-- 指定 hover 到的元素下的元素
+-   指定 hover 到的元素下的元素
 
-  ```javascript
-  const dropdown = this.querySelector('.dropdown');
-  const cords = dropdown.getBoundingClientRect();
-  ```
+    ```javascript
+    const dropdown = this.querySelector('.dropdown');
+    const cords = dropdown.getBoundingClientRect();
+    ```
 
+## 27 - Click and Drag
+
+> [Demo](https://hcwxd.github.io/JavaScript30/27%20-%20Click%20and%20Drag/index.html)
+
+-   Drag and scroll 效果，需要監聽的事件
+
+    -   `mousedown` , `mouseleave` , `mouseup` , `mousemove`
+
+-   Click 在外層元素裡的位置
+
+    -   `e.pageX` 在整個網頁的位置
+    -   `- slider.offsetLeft` 扣掉外層元素的位置
+
+-   console.log debug 小技巧
+
+    -   印出 { variables } 可以同時知道印出的是哪個變數
+
+-   製造 scroll 效果
+
+    ```javascript
+    // mousedown
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+
+    // mousemove
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 3;
+    slider.scrollLeft = scrollLeft - walk;
+    ```
