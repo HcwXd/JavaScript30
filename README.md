@@ -1144,3 +1144,25 @@
     const walk = (x - startX) * 3;
     slider.scrollLeft = scrollLeft - walk;
     ```
+
+## 28 - Video Speed Controller
+
+> [Demo](https://hcwxd.github.io/JavaScript30/28%20-%20Video%20Speed%20Controller/index.html)
+
+-   在外層元素裡的位置高度
+
+    -   `e.pageY - this.offsetTop`
+
+-   元素 height 用 percent 衡量
+
+    ```JavaScript
+    const height = Math.round(percent * 100) + '%';
+    ```
+
+-   小數點後兩位
+
+    -   `number.toFixed(2)`
+
+-   video 播放速度
+
+    -   `video.playbackRate`
