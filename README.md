@@ -1171,6 +1171,8 @@
 
 ## 29 - Countdown Timer
 
+> [Demo](https://hcwxd.github.io/JavaScript30/29%20-%20Countdown%20Timer/index.html)
+
 - `setInterval` 累加顯示時間的問題
 
   - 在 Browser 不一定準
