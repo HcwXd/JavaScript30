@@ -1166,3 +1166,52 @@
 -   video 播放速度
 
     -   `video.playbackRate`
+
+
+
+## 29 - Countdown Timer
+
+- `setInterval` 累加顯示時間的問題
+
+  - 在 Browser 不一定準
+  - 在 iOS，scroll 發生時會 pause `setInterval`
+
+- `Date.now() `
+
+  - 會回傳一個以毫秒為單位的時間
+  - 可以把得到的數值放回 `new Date( Date.now()  )` 中得到 `Date` 物件
+
+- 倒數計時
+
+  ```javascript
+  const now = Date.now();
+  const then = now + seconds * 1000
+  setInterval(()=>{
+      const secLeft = Math.round( (then - Date.now()) / 1000 );
+  },1000)
+  ```
+
+- 終止 `setInterval`
+
+  - 把 `setInterval` 指派給一個變數 var1
+  - `clearInterval(var1)`
+
+- `setInterval` 不會在第零秒時觸發，故開始時間要用額外 operation
+
+- 網頁的標題 `tab`
+
+  - `document.title`
+
+- 用 name attribute 取代 querySelector
+
+  ```javascript
+  const customForm = document.customForm;
+  ```
+
+- Form & Input
+
+  - 用 `submit` 監聽
+  - 用 `e.preventDefault()` 避免重新整理
+  - 用 `this.reset()` 清空 input
+
+  
