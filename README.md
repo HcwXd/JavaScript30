@@ -1167,53 +1167,63 @@
 
     -   `video.playbackRate`
 
-
-
 ## 29 - Countdown Timer
 
 > [Demo](https://hcwxd.github.io/JavaScript30/29%20-%20Countdown%20Timer/index.html)
 
-- `setInterval` 累加顯示時間的問題
+-   `setInterval` 累加顯示時間的問題
 
-  - 在 Browser 不一定準
-  - 在 iOS，scroll 發生時會 pause `setInterval`
+    -   在 Browser 不一定準
+    -   在 iOS，scroll 發生時會 pause `setInterval`
 
-- `Date.now() `
+-   `Date.now()`
 
-  - 會回傳一個以毫秒為單位的時間
-  - 可以把得到的數值放回 `new Date( Date.now()  )` 中得到 `Date` 物件
+    -   會回傳一個以毫秒為單位的時間
+    -   可以把得到的數值放回 `new Date( Date.now() )` 中得到 `Date` 物件
 
-- 倒數計時
+-   倒數計時
 
-  ```javascript
-  const now = Date.now();
-  const then = now + seconds * 1000
-  setInterval(()=>{
-      const secLeft = Math.round( (then - Date.now()) / 1000 );
-  },1000)
-  ```
+    ```javascript
+    const now = Date.now();
+    const then = now + seconds * 1000;
+    setInterval(() => {
+        const secLeft = Math.round((then - Date.now()) / 1000);
+    }, 1000);
+    ```
 
-- 終止 `setInterval`
+-   終止 `setInterval`
 
-  - 把 `setInterval` 指派給一個變數 var1
-  - `clearInterval(var1)`
+    -   把 `setInterval` 指派給一個變數 var1
+    -   `clearInterval(var1)`
 
-- `setInterval` 不會在第零秒時觸發，故開始時間要用額外 operation
+-   `setInterval` 不會在第零秒時觸發，故開始時間要用額外 operation
 
-- 網頁的標題 `tab`
+-   網頁的標題 `tab`
 
-  - `document.title`
+    -   `document.title`
 
-- 用 name attribute 取代 querySelector
+-   用 name attribute 取代 querySelector
 
-  ```javascript
-  const customForm = document.customForm;
-  ```
+    ```javascript
+    const customForm = document.customForm;
+    ```
 
-- Form & Input
+-   Form & Input
 
-  - 用 `submit` 監聽
-  - 用 `e.preventDefault()` 避免重新整理
-  - 用 `this.reset()` 清空 input
+    -   用 `submit` 監聽
+    -   用 `e.preventDefault()` 避免重新整理
+    -   用 `this.reset()` 清空 input
 
-  
+## 30 - Whack A Mole
+
+> [Demo](https://hcwxd.github.io/JavaScript30/30%20-%20Whack%20A%20Mole/index.html)
+
+-   Random(min, max)
+
+    ```javascript
+    return Math.round(Math.random() * (max - min) + min);
+    ```
+
+-   避免 fake mouse click
+
+    -   `e.isTrusted = true`
