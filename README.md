@@ -760,9 +760,14 @@
 ## 19 - Webcam Fun
 
 > Demo steps:
+>
 > cd 19\ -\ Webcam\ Fun/
+>
 > npm install
+>
 > npm run start
+
+
 
 - 取得 Webcam 權限
 
@@ -902,8 +907,11 @@
 ## 20 - Speech Detection
 
 > Demo steps:
+>
 > cd 20\ -\ Speech\ Detection/
+>
 > npm install
+>
 > npm run start
 
 
@@ -938,9 +946,14 @@
 ## 21 - Geolocation
 
 > Demo steps:
+>
 > cd 21\ -\ Geolocation/
+>
 > npm install
+>
 > npm run start
+
+
 
 -   模擬器
     -   Xcode => Open Dev Tool => Simulator
