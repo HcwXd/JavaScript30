@@ -1,72 +1,6 @@
 # JavaScript30
 
-## Catalog
 
-### 01 - JavaScript Drum Kit
-
-> [Demo](https://hcwxd.github.io/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/index.html)
-
-### 02 - JS and CSS Clock
-
-> [Demo](https://hcwxd.github.io/JavaScript30/02%20-%20JS%20and%20CSS%20Clock/index.html)
-
-### 03 - CSS Variables
-
-> [Demo](https://hcwxd.github.io/JavaScript30/03%20-%20CSS%20Variables/index.html)
-
-### 04 - Array Cardio Day 1
-
-> [Demo](https://hcwxd.github.io/JavaScript30/04%20-%20Array%20Cardio%20Day%201/index.html)
-
-### 05 - Flex Panel Gallery
-
-> [Demo](https://hcwxd.github.io/JavaScript30/05%20-%20Flex%20Panel%20Gallery/index.html)
-
-### 06 - Type Ahead
-
-> [Demo](https://hcwxd.github.io/JavaScript30/06%20-%20Type%20Ahead/index.html)
-
-### 07 - Array Cardio Day 2
-
-> [Demo](https://hcwxd.github.io/JavaScript30/07%20-%20Array%20Cardio%20Day%202/index.html)
-
-### 08 - Fun with HTML5 Canvas
-
-> [Demo](https://hcwxd.github.io/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/index.html)
-
-### 09 - Dev Tools Domination
-
-> [Demo](https://hcwxd.github.io/JavaScript30/09%20-%20Dev%20Tools%20Domination/index.html)
-
-### 10 - Hold Shift and Check Checkboxes
-
-> [Demo](https://hcwxd.github.io/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index.html)
-
-### 11 - Custom Video Player
-
-> [Demo](https://hcwxd.github.io/JavaScript30/11%20-%20Custom%20Video%20Player/index.html)
-
-### 12 - Key Sequence Detection
-
-> [Demo](https://hcwxd.github.io/JavaScript30/12%20-%20Key%20Sequence%20Detection/index.html)
-
-### 13 - Slide in on Scroll
-
-> [Demo](https://hcwxd.github.io/JavaScript30/13%20-%20Slide%20in%20on%20Scroll/index.html)
-
-### 14 - JavaScript References VS Copying
-
-> [Demo](https://hcwxd.github.io/JavaScript30/14%20-%20JavaScript%20References%20VS%20Copying/index.html)
-
-### 15 - LocalStorage
-
-> [Demo](https://hcwxd.github.io/JavaScript30/15%20-%20LocalStorage/index.html)
-
-### 16 - Mouse Move Shadow
-
-> [Demo](https://hcwxd.github.io/JavaScript30/16%20-%20Mouse%20Move%20Shadow/index.html)
-
----
 
 ## 01 - JavaScript Drum Kit
 
@@ -825,7 +759,12 @@
 
 ## 19 - Webcam Fun
 
--   取得 Webcam 權限
+> Demo steps:
+> cd 19\ -\ Webcam\ Fun/
+> npm install
+> npm run start
+
+- 取得 Webcam 權限
 
     -   需要開在安全的`server` / `localhost`
     -   可以用簡單的 `package.json`
@@ -847,7 +786,7 @@
     }
     ```
 
--   JS 中取得 Webcam 影像
+- JS 中取得 Webcam 影像
 
     -   `navigator.mediaDevices.getUserMedia` 會得到一個 Promise 物件
     -   `video.src = window.URL.createObjectURL(localMediaStream);` 拿到影像
@@ -865,11 +804,11 @@
         });
     ```
 
--   拿到 video 的實際寬高
+- 拿到 video 的實際寬高
 
     -   `video.videoHieght` , `video.videoWidth`
 
--   用 canvas 輸出 Webcame Stream
+- 用 canvas 輸出 Webcame Stream
 
     ```javascript
     return setInterval(() => {
@@ -879,13 +818,13 @@
     }, 16);
     ```
 
--   監聽 video 準備好的事件
+- 監聽 video 準備好的事件
 
     ```javascript
     video.addEventListener('canplay', paintToCanvas);
     ```
 
--   把 canvas 資料取出，轉化成 Base64
+- 把 canvas 資料取出，轉化成 Base64
 
     ```javascript
     const data = canvas.toDataURL('image/jpeg');
@@ -893,24 +832,24 @@
     link.href = data;
     ```
 
--   Base64 資料
+- Base64 資料
 
     -   基本上圖片轉換成一長串的字串，可以直接代表圖片，因此在網頁中把圖片打開，其實只是讓瀏覽器解析那一長串的字串代表什麼樣的圖片
 
--   設定可下載的連結跟預覽
+- 設定可下載的連結跟預覽
 
     ```javascript
     link.setAttribute('download', 'handsome');
     link.innerHTML = <img src="${data}" alt="Handsome Man" />;
     ```
 
--   取得 canvas 中影像的 pixel
+- 取得 canvas 中影像的 pixel
 
     ```javascript
     let pixels = ctx.getImageData(0, 0, width, height);
     ```
 
--   更改 pixel 產生 filter
+- 更改 pixel 產生 filter
 
     -   pixel.data 為一個陣列，每個影像上的點都由四個連續的數值決定，從 `pixel[0]` 到 `pixel[3]` 分別代表 rgba
 
@@ -944,52 +883,64 @@
     ctx.globalAlpha = 0.1;
     ```
 
--   把更改後的 pixel 放回 canvas
+- 把更改後的 pixel 放回 canvas
 
     ```javascript
     ctx.putImageData(pixels, 0, 0);
     ```
 
--   prepend child 的方法
+- prepend child 的方法
 
     ```javascript
     outer.insertBefore(inner, outer.firsChild);
     ```
 
--   debugger
+- debugger
 
     -   可以直接在 JS 中設置暫停點
 
 ## 20 - Speech Detection
 
--   瀏覽器中的 Speech Recognition
+> Demo steps:
+> cd 20\ -\ Speech\ Detection/
+> npm install
+> npm run start
+
+
+
+- 瀏覽器中的 Speech Recognition
 
     -   `window.SpeechRecognition` or `window.webkitSpeechRecognition`
 
--   基本設置
+- 基本設置
 
     ```javascript
     const recognition = new SpeechRecognition();
     // ? 即時辨識 : 停頓辨識
     recognition.interimResults = true;
     recognition.lang = 'en-US';
-
+    
     recognition.start();
     ```
 
--   監聽 recognition 事件
+- 監聽 recognition 事件
 
     -   `recognition.addEventListener('result')`
 
     -   `recognition.addEventListener('end')`
 
--   result 回傳事件
+- result 回傳事件
 
     -   `e.results` => 回傳一個 `SpeechRecognitionResultList`
     -   `e.results[0].isFinal` => 回傳布林值判斷是否有斷句
     -   `e.results[0].transript` => 回傳辨識結果
 
 ## 21 - Geolocation
+
+> Demo steps:
+> cd 21\ -\ Geolocation/
+> npm install
+> npm run start
 
 -   模擬器
     -   Xcode => Open Dev Tool => Simulator
